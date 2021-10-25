@@ -7,8 +7,29 @@
     position: absolute;
     transition: 0s;
     transform: translate(-50%,-50%);
+   
     
 }
+.bullet{
+    width:5px;
+    height:30px;
+    position: relative;
+    left:-2.8px;
+    top:4px;
+    transition: transform 300ms linear;
+    background-color: black;
+    
+  
+}
+
+.animate-on{
+    transform:translateY(-10000%);
+}
+.animate-off{
+    transform:translateY(10000%);
+}
+
+
 .enemyPlane{
     width:0;
     height:0;
@@ -16,17 +37,24 @@
     border-right: 50px solid transparent;
     border-bottom: 50px solid black;
 }
-section{
-    display: flex;
-    background-color: black;
+
+
+.box{
     width:100px;
     height:100px;
+    background-color: aqua;
+    padding: 10px;
 }
 
-.bullet{
-    width:10px;
-    height:10px;
-    background-color: rgb(68, 0, 255);
-    position: absolute;
-    
+.inner-box{
+    width: 20px;
+    height:20px;
+    background-color: blueviolet;
+    transition: transform 1s linear;
+
+}
+
+.box:active .inner-box{
+    transform:translateY(1000%)
+
 }

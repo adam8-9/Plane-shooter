@@ -1,6 +1,7 @@
 let body = document.querySelector('body')
 let player = document.querySelector(".playerPlane")
 let test = document.querySelector("section")
+let bullet = document.querySelector(".bullet")
 
 let x;
 let y;
@@ -14,32 +15,47 @@ window.addEventListener("mousemove", (e) => {
 
 })
 
-function create() {
+/*function create() {
     console.log('held')
     let bullet = document.createElement('div')
     bullet.classList.add('bullet')
     // bullet.style.backgroundColor = "white"
-    bullet.style.left = (x - 5) + "px"
-    bullet.style.top = (y - 60) + "px"
     body.appendChild(bullet)
-    bullet.style.transition = "transform 1s ease"
+    bullet.style.left = (x - 5) + "px"
+    bullet.style.top = (y - 55) + "px"
     bullet.style.transform = "translateY(-1000%)"
-    setTimeout('create()', 1)
+    //setTimeout('create()', 5)
+}*/
+let newBullet;
+function animateOff() {
+    bullet.classList.remove('animate-on')
+    // bullet.parentNode.removeChild(bullet)
+    //  bullet.parentNode.firstChild
+    /* newBullet = document.createElement('div')
+     player.append(newBullet)
+     setTimeout(newBullet.classList.add('bullet'),
+         newBullet.classList.add('animate-on'), 100)*/
+    player.append(bullet)
+
 }
-
 let mouse = false
-player.addEventListener("mousedown", (e) => {
-    mouse = true
-    if (e.type === "mousedown") {
-        setTimeout('create()', 1)
-    } else {
+player.addEventListener("click", (e) => {
 
-    }
+    bullet.classList.add('animate-on')
+    setTimeout(animateOff, 400)
+    //player.append(bullet)
+    // setTimeout(player.append(bullet), 201)
+
+
+
 
 })
 
 player.addEventListener("mouseup", (e) => {
+    console.log('up')
     mouse = false;
+    //bullet.classList.add('animate-off')
+
 })
 /*mouse = false;
 function mousedown() {
