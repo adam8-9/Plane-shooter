@@ -2,18 +2,40 @@ let body = document.querySelector('body')
 let player = document.querySelector(".playerPlane")
 let test = document.querySelector("section")
 let bullet = document.querySelector(".bullet")
+let plane1 = document.querySelector('.plane1')
+let plane2 = document.querySelector('.plane2')
+let plane3 = document.querySelector('.plane3')
+//console.log(plane1)
+let plane1PosY = window.scrollY + plane1.getBoundingClientRect().top // Y
+let plane2PosY = window.scrollY + plane2.getBoundingClientRect().top // Y
+let plane3PosY = window.scrollY + plane3.getBoundingClientRect().top // Y
+
+let plane1PosX = window.scrollX + plane1.getBoundingClientRect().left // Y
+let plane2PosX = window.scrollX + plane2.getBoundingClientRect().left // Y
+let plane3PosX = window.scrollX + plane3.getBoundingClientRect().left // Y
+console.log(plane1PosY, plane1PosX, plane2PosY, plane2PosX, plane3PosY, plane3PosX)
+
+/*let planePos = (plane) => {
+    planeX = plane.s
+    planeY = plane.clientY
+    console.log(planeX, plane)
+}
+
+planePos(plane1)*/
+
 
 let x;
 let y;
-
-window.addEventListener("mousemove", (e) => {
+window.addEventListener("click", (e) => {
     x = e.clientX
     y = e.clientY
-    player.style.left = x + "px"
-    player.style.top = y + "px"
+    // player.style.left = x + "px"
+    // player.style.top = y + "px"
+    //console.log(y, x)
 
 
 })
+
 
 /*function create() {
     console.log('held')
@@ -26,7 +48,8 @@ window.addEventListener("mousemove", (e) => {
     bullet.style.transform = "translateY(-1000%)"
     //setTimeout('create()', 5)
 }*/
-let newBullet;
+
+let BulletPosition = {}
 function animateOff() {
     bullet.classList.remove('animate-on')
     // bullet.parentNode.removeChild(bullet)
@@ -40,9 +63,11 @@ function animateOff() {
 }
 let mouse = false
 player.addEventListener("click", (e) => {
-
     bullet.classList.add('animate-on')
-    setTimeout(animateOff, 400)
+    BulletPosition[x] = window.scrollX + bullet.getBoundingClientRect().left // x
+    BulletPosition[y] = window.scrollY + bullet.getBoundingClientRect().top // y
+    console.log(BulletPosition)
+    setTimeout(animateOff, 1100)
     //player.append(bullet)
     // setTimeout(player.append(bullet), 201)
 
@@ -52,7 +77,6 @@ player.addEventListener("click", (e) => {
 })
 
 player.addEventListener("mouseup", (e) => {
-    console.log('up')
     mouse = false;
     //bullet.classList.add('animate-off')
 
