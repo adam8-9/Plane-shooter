@@ -1,0 +1,23 @@
+{
+  "name": "rpg",
+  "version": "1.0.0",
+  "description": "Allows player to shoot planes and challenge themselves as time goes on to see how long they can last",
+  "main": "index1.js",
+  "scripts": {
+    "start": "parcel index1.html",
+    "build": "parcel build index1.html --public-url ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adam8-9/RPG.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adam8-9/RPG/issues"
+  },
+  "homepage": "https://github.com/adam8-9/RPG#readme",
+  "devDependencies": {
+    "parcel": "^2.0.0"
+  }
+}
