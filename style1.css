@@ -2,6 +2,11 @@ body{
     background-color:black;
 }
 
-.ship{
+.entity{
     position:fixed;
+}
+.bullet{
+    background-color: red;
+    width:6px;
+    height:6px;
 }
